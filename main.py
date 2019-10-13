@@ -14,7 +14,7 @@ cors = CORS(app, resources={r"*": {"origins": "*","allow_headers": "*"}})
 
 @app.route('/')
 def hello():
-    return ' WELCOME to Medical AI API 😊 !'
+    return ' WELCOME to Medical AI API 😊 ! '
 
 def load_labels(label_file):
     label = []
