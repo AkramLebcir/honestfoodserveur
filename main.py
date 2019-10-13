@@ -137,10 +137,14 @@ def postimage():
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
+  resultfin = []
   for i in top_k:
-    print(labels[i], results[i])
+    #print(labels[i], results[i])
+    #print((*labels, *results))
+    resultfin.append((labels[i], results[i]))
+    print(resultfin[0])
 
-  data = np.array([labels[0], results[0]])
+  data = np.array(resultfin[0])
 
   datajson = data.tolist()
   response = app.response_class(
@@ -160,4 +164,5 @@ def server_error(e):
 
 if __name__ == '__main__':
 
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(debug=True)
+# host='127.0.0.1', port=8080
